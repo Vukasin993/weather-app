@@ -1,0 +1,107 @@
+.wrapper {
+    height: 100vh;
+    padding: 10px;
+    background: linear-gradient(0.25turn, #143989, #96daff, #ff9457);
+
+    .search {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+
+        .left {
+            display: flex;
+            align-items: center;
+            background-color: white;
+
+            .select {
+                margin-left: 30px;
+            }
+
+            .icon {
+                margin: 0;
+                width: 45px;
+                height: 45px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-color: white;
+
+                img {
+                    width: 27px;
+                    height: 27px;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                margin: 0;
+                width: 45px;
+                height: 45px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-color: white;
+
+                img {
+                    width: 27px;
+                    height: 27px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+      @media only screen and (min-width: 992px) {
+        .search {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 430px;
+            height: 63px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .right {
+            display: flex;
+            align-items: center;
+
+            .input {
+                padding: 15px 0;
+            }
+
+            .icon {
+                margin: 0;
+                width: 45px;
+                height: 45px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-color: white;
+
+                img {
+                    width: 27px;
+                    height: 27px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+

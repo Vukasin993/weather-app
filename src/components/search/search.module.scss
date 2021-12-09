@@ -1,0 +1,22 @@
+.common {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+
+  input {
+    background-color: transparent;
+    box-sizing: border-box;
+    color: red;
+    outline: none;
+    border: none;
+    width: 100%;
+    cursor: text;
+  }
+
+  ::placeholder {
+    color: red;
+  }
+}

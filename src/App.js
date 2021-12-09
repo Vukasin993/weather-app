@@ -1,10 +1,12 @@
-import './App.css';
+import React from 'react'
+import LandingPage from './pages/landing-page/index'
 
 const App = () => {
+
   return (
-    <div>
+    <div className="App">
       <header>
-        <div>HOME PAGE</div>
+        <LandingPage />
       </header>
     </div>
   );
