@@ -16,6 +16,7 @@ input::-webkit-outer-spin-button,
 		border-radius: 5px;
 		padding: 15px;
 		border: none;
+		color: #9498a4;
 
         .inputWrapper {
             input {
@@ -24,7 +25,7 @@ input::-webkit-outer-spin-button,
         }
 
 		&::placeholder {
-			color: red;
+			color: #c5c7cc;
 		}
 
 		&:disabled {
@@ -33,11 +34,16 @@ input::-webkit-outer-spin-button,
 
 		&:active {
 			outline: none;
-			background-color: white !important;
+			color:#9498a4;
+		}
+
+		&:hover {
+			color: #b2b2b8;
 		}
 
 		&:focus {
 			outline: none;
+			color: #9498a4;
 		}
 
 		// cursor: text;

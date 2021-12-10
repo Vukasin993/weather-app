@@ -1,9 +1,10 @@
 .wrapper {
-    height: 100vh;
+    height: max-content;
+    min-height: 100vh;
     padding: 10px;
-    background: linear-gradient(0.25turn, #143989, #96daff, #ff9457);
+    background: linear-gradient(0.25turn, #cee8f7, #e4f5ff, #fff3e3);
 
-    .search {
+    .center-search {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -15,35 +16,39 @@
         width: auto;
         height: auto;
 
-        .left {
+        .icon {
+            margin:0;
             display: flex;
+            flex-direction: row;
             align-items: center;
-            background-color: white;
 
-            .select {
-                margin-left: 30px;
-            }
-
-            .icon {
-                margin: 0;
+            img {
                 width: 45px;
                 height: 45px;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                background-color: white;
+                margin: 0 auto;
+            }
+        }
 
-                img {
-                    width: 27px;
-                    height: 27px;
-                    margin: 0 auto;
-                }
+        .select {
+            background-color: white;
+
+            &>div {
+                padding: 0;
+            }
+
+            button {
+                height: 45px;
+                border: none;
             }
         }
 
         .right {
             display: flex;
             align-items: center;
+
+            .input {
+                padding: 15px;
+            }
 
             .icon {
                 margin: 0;
@@ -62,22 +67,216 @@
             }
         }
     }
+}
 
-      @media only screen and (min-width: 992px) {
-        .search {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            width: 430px;
-            height: 63px;
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: auto;
+
+    .icon {
+        margin: 0;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: white;
+
+        img {
+            width: 27px;
+            height: 27px;
+             margin: 0 auto;
+        }
+    }
+
+    .select {
+        background-color: white;
+        margin-top: 10px;
+
+        &>div {
+            padding: 0;
+        }
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+
+        .icon {
+            margin: 0;
+            width: 45px;
+            height: 45px;
             display: flex;
             flex-direction: row;
-            justify-content: flex-start;
             align-items: center;
+            background-color: white;
+
+            img {
+                width: 27px;
+                height: 27px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.ten-days-temp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span {
+        font-size: 72px;
+        color: white;
+        position: relative;
+
+        .celsius {
+            position: absolute;
+            top: 13px;
+            right: inherit;
+            font-size: 30px;
+        }
+    }
+}
+
+.seven-days {
+    margin-top: 20px;
+
+}
+
+.seven-days-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .card-day {
+        color: gray;
+    }
+
+    .card-temperature {
+        margin-top: 10px;
+        color: white;
+    }
+}
+
+  @media only screen and (min-width: 992px) {
+   .wrapper {
+    .search {
+        // position: fixed;
+        // top: 50%;
+        // left: 50%;
+        // -webkit-transform: translate(-50%, -50%);
+        // transform: translate(-50%, -50%);
+        width: 430px;
+        height: 63px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        .icon {
+            background-color: white;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
         }
         
+        .right {
+            display: flex;
+            align-items: center;
+
+            .input {
+                padding: 15px 0;
+            }
+
+            .icon {
+                margin: 0;
+                width: 45px;
+                height: 45px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-color: white;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+
+                img {
+                    width: 27px;
+                    height: 27px;
+                    margin: 0 auto;
+                }
+            }
+
+            .select {
+                background-color: white;
+
+                &>div {
+                    padding: 0;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    button {
+                        height: 35px;
+                        border: 1px solid gray;
+                    }
+                }
+                
+
+            }
+        }
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+.wrapper {
+    .center-search {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+
+        .icon {
+            margin:0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: white;
+
+            img {
+                width: 45px;
+                height: 45px;
+                margin: 0 auto;
+            }
+        }
+
+        .select {
+            background-color: white;
+
+            &>div {
+                padding: 0;
+                display: flex;
+                /* align-items: center; */
+                flex-direction: row;
+                align-items: center;
+                height: 45px;
+            }
+
+            button {
+                height: 35px;
+                border: 1px solid gray;
+            }
+        }
+
         .right {
             display: flex;
             align-items: center;
@@ -103,5 +302,6 @@
             }
         }
     }
+}
 }
 
