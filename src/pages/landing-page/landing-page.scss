@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300;500;600;700&family=Poppins:wght@100;200;300;400;600;700;900&family=Roboto:wght@300;400;500&display=swap');
+
 .wrapper {
     height: max-content;
     min-height: 100vh;
     padding: 10px;
+    font-family: 'Poppins', sans-serif;
     // background: linear-gradient(0.25turn, #cee8f7, #e4f5ff, #fff3e3);
 }
 
@@ -143,7 +146,7 @@
             padding: 0 5px 0 0;
             border: 1px solid lightgray;
             width: 70px;
-
+            border-radius: 10px;
 
             ul {
                 width: 100px;
@@ -209,17 +212,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-transform: uppercase;
 
     span {
         font-size: 72px;
+        font-weight: 700;
         color: white;
         position: relative;
 
         .celsius {
             position: absolute;
-            top: 13px;
+            top: 20px;
             right: inherit;
-            font-size: 30px;
+            font-size: 24px;
         }
     }
 }
@@ -235,17 +240,29 @@
     padding: 20px;
 
     .card-day {
-        color: #5c8188;
+        color: #5a9294;
+        text-transform: uppercase;
+        font-weight: 700;
     }
 
     .card-temperature {
         margin-top: 10px;
+        font-weight: 700;
         color: white;
+        position: relative;
+
+        .small-celsius {
+            position: absolute;
+            top: 1px;
+            right: inherit;
+            font-size: 12px;
+        }
     }
 }
 
 .date-range {
-    color: #5c8188;
+    color: #5a9294;
+    font-weight: 700;
 }
 
   @media only screen and (min-width: 992px) {
@@ -261,8 +278,8 @@
 
         .icon {
             background-color: white;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
         }
         
         .right {
@@ -312,6 +329,10 @@
         .select {
             margin-top: 0;
             border-radius: 0;
+
+            ul {
+                top: 40px;
+            }
         }
         }
 
@@ -330,12 +351,17 @@
 
         .select {
             width: 70px;
+            border-radius: 0;
 
             &>div {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 height: 45px;
+
+                ul {
+                    top: 40px;
+                }
             }
 
             button {
@@ -350,8 +376,8 @@
             margin-top: 0;
             padding-left: 10px;
             padding-right: 10px;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
 
             .input {
                 padding: 0;
@@ -382,5 +408,3 @@
         justify-content: center;
     }
 }
-
-
