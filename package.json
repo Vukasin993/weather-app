@@ -11,6 +11,7 @@
     "react-flags-select": "^2.1.2",
     "react-scripts": "4.0.3",
     "react-select": "^5.2.1",
+    "react-toastify": "^8.1.0",
     "sass": "^1.44.0",
     "web-vitals": "^1.1.2"
   },

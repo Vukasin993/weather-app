@@ -2,7 +2,8 @@
     height: max-content;
     min-height: 100vh;
     padding: 10px;
-    background: linear-gradient(0.25turn, #cee8f7, #e4f5ff, #fff3e3);
+    // background: linear-gradient(0.25turn, #cee8f7, #e4f5ff, #fff3e3);
+}
 
     .center-search {
         display: flex;
@@ -17,6 +18,7 @@
         height: auto;
 
         .icon {
+            height: 65px;
             margin:0;
             display: flex;
             flex-direction: row;
@@ -31,32 +33,69 @@
 
         .select {
             background-color: white;
+            height: 65px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 75px;
+            padding: 0 10px;
+            border-radius: 10px;
 
             &>div {
-                padding: 0;
+                padding: 0 5px 0 0;
+                border: 1px solid #f0eff0;
+                border-radius: 10px;
+                width: 70px;
+
+
+                ul {
+                    width: 100px;
+                }
             }
 
             button {
                 height: 45px;
                 border: none;
+                font-size: 0.875rem !important;
+                padding: 0;
+
+                span {
+                    padding: 0 3px;
+                }
             }
         }
 
         .right {
             display: flex;
             align-items: center;
+            height: 65px;
+            background: white;
+            margin-top: 10px;
+            border-radius: 10px;
 
             .input {
                 padding: 15px;
+                width: 300px;
+
+                .inputWrapper {
+                    border: 1px solid #f0eff0;
+                    width: 100%;
+                    border-radius: 10px;
+
+                    input {
+                        width: 270px;
+                        z-index: 2;
+                    }
+                }
             }
 
             .icon {
                 margin: 0;
-                width: 45px;
-                height: 45px;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                right: 15px;
+                cursor: pointer;
                 background-color: white;
 
                 img {
@@ -67,7 +106,7 @@
             }
         }
     }
-}
+
 
 .search {
     display: flex;
@@ -77,41 +116,84 @@
     height: auto;
 
     .icon {
-        margin: 0;
-        width: 45px;
-        height: 45px;
+        height: 65px;
+        margin:0;
         display: flex;
         flex-direction: row;
         align-items: center;
-        background-color: white;
 
         img {
-            width: 27px;
-            height: 27px;
-             margin: 0 auto;
+            width: 45px;
+            height: 45px;
+            margin: 0 auto;
         }
     }
 
     .select {
         background-color: white;
-        margin-top: 10px;
+        height: 65px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 75px;
+        padding: 0 10px;
+        border-radius: 10px;
 
         &>div {
+            padding: 0 5px 0 0;
+            border: 1px solid lightgray;
+            width: 70px;
+
+
+            ul {
+                width: 100px;
+            }
+        }
+
+        button {
+            height: 45px;
+            border: none;
+            font-size: 0.875rem !important;
             padding: 0;
+
+            span {
+                padding: 0 3px;
+            }
         }
     }
 
     .right {
         display: flex;
         align-items: center;
+        height: 65px;
+        background: white;
+        margin-top: 10px;
+        position: relative;
+        border-radius: 10px;
+        
+        .input {
+            padding: 15px;
+            width: 300px;
+
+            .inputWrapper {
+                border: 1px solid #f0eff0;
+                width: 100%;
+                border-radius: 10px;
+
+                input {
+                    width: 270px;
+                    z-index: 2;
+                }
+            }
+        }
 
         .icon {
             margin: 0;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            right: 15px;
+            cursor: pointer;
             background-color: white;
 
             img {
@@ -144,16 +226,16 @@
 
 .seven-days {
     margin-top: 20px;
-
 }
 
 .seven-days-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 
     .card-day {
-        color: gray;
+        color: #5c8188;
     }
 
     .card-temperature {
@@ -162,20 +244,20 @@
     }
 }
 
+.date-range {
+    color: #5c8188;
+}
+
   @media only screen and (min-width: 992px) {
-   .wrapper {
     .search {
-        // position: fixed;
-        // top: 50%;
-        // left: 50%;
-        // -webkit-transform: translate(-50%, -50%);
-        // transform: translate(-50%, -50%);
-        width: 430px;
+        width: 460px;
         height: 63px;
+        margin: 200px auto auto auto;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        align-items: center;
+        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+        border-radius: 10px;
 
         .icon {
             background-color: white;
@@ -184,33 +266,32 @@
         }
         
         .right {
-            display: flex;
-            align-items: center;
+            margin-top: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0;
 
             .input {
                 padding: 15px 0;
+
+                .inputWrapper {
+                    input {
+                        padding-left: 15px;
+                    }
+                }
             }
 
             .icon {
-                margin: 0;
                 width: 45px;
                 height: 45px;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                background-color: white;
-                border-top-right-radius: 5px;
-                border-bottom-right-radius: 5px;
-
-                img {
-                    width: 27px;
-                    height: 27px;
-                    margin: 0 auto;
-                }
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
             }
 
             .select {
                 background-color: white;
+                border-radius: 0;
 
                 &>div {
                     padding: 0;
@@ -227,45 +308,31 @@
 
             }
         }
-        }
-    }
-}
 
-@media only screen and (min-width: 992px) {
-.wrapper {
+        .select {
+            margin-top: 0;
+            border-radius: 0;
+        }
+        }
+
     .center-search {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        width: auto;
-        height: auto;
-
+        height: 63px;
+        justify-content: flex-start;
+        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+        border-radius: 10px;
         .icon {
-            margin:0;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
             background-color: white;
-
-            img {
-                width: 45px;
-                height: 45px;
-                margin: 0 auto;
-            }
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
         }
 
         .select {
-            background-color: white;
+            width: 70px;
 
             &>div {
-                padding: 0;
                 display: flex;
-                /* align-items: center; */
                 flex-direction: row;
                 align-items: center;
                 height: 45px;
@@ -273,35 +340,47 @@
 
             button {
                 height: 35px;
-                border: 1px solid gray;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 0;
             }
         }
 
         .right {
-            display: flex;
-            align-items: center;
+            margin-top: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
 
             .input {
-                padding: 15px 0;
+                padding: 0;
+                background-color: white;
+                height: 45px;
+
+                .inputWrapper {
+                    input {
+                        padding-left: 15px;
+                        width: 95%;
+                        border: none;
+                    }
+                }
             }
 
             .icon {
-                margin: 0;
-                width: 45px;
-                height: 45px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                background-color: white;
-
-                img {
-                    width: 27px;
-                    height: 27px;
-                    margin: 0 auto;
-                }
             }
         }
     }
+
+    .seven-days {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
 }
-}
+
 
