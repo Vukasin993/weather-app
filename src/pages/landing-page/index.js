@@ -12,7 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const API_KEY = '4e308dad5b0ffc36440e738859db44c6';
 
 const LandingPage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
   const [weatherData, setWeatherData] = useState({});
   const [sevenDaysData, setSevenDaysData] = useState({});
   const [cityName, setCityName] = useState('');
@@ -22,9 +21,6 @@ const LandingPage = () => {
   const getMonth = { month: 'long' };
   const [gradient, setGradient] = useState('');
   const date = new Date();
-  const chooseCity = () => toast("You must choose country and city!");
-  const wrontCityOrState = () => toast("City isn't in that country!");
-  const noData = () => toast("We have no data for the requested city!");
 
   const getWeather = async (city) => {
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${stateCode},${stateCode}&cnt=${constants.cnt}&units=metric&appid=${API_KEY}`);
@@ -32,7 +28,7 @@ const LandingPage = () => {
       const response = await api_call.json();
 
       if (stateCode !== response.sys.country) {
-        wrontCityOrState()
+        toast.warning("City isn't in that country!");
       } else if (stateCode === response.sys.country) {
         setWeatherData(response);
         constants.percentage = (40 + response.main.temp) / 80;
@@ -41,14 +37,14 @@ const LandingPage = () => {
         console.log("TEST @", test2)
         setGradient(test2);
         setUpdateWeather(true);
-      } 
+      }
     } else {
-      noData();
+      toast.warning("You must choose country and city!");
     }
   }
 
   const sevendDaysWeather = async () => {
-    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=minutely&units=metric&appid=${API_KEY}`)
+    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=minutely&units=metric&appid=${API_KEY}`);
     const response = await api_call.json();
     setSevenDaysData(response);
   }
@@ -61,16 +57,15 @@ const LandingPage = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setSearchTerm(e.target.value);
     setCityName(e.target.value);
   };
 
   useEffect(() => {
     if (stateCode !== '' && cityName !== '') {
-    const cutSpaces = cityName.trim();
-    const capitalizeLetters = cutSpaces.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
-    setCityName(capitalizeLetters);
-    getWeather(capitalizeLetters);
+      const cutSpaces = cityName.trim();
+      const capitalizeLetters = cutSpaces.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+      setCityName(capitalizeLetters);
+      getWeather(capitalizeLetters);
     }
   }, [update]);
 
@@ -78,8 +73,19 @@ const LandingPage = () => {
     if (stateCode !== '' && cityName !== '') {
       setUpdate(!update)
     } else {
-      chooseCity();
+      toast.warning("You must choose country and city!");
     }
+  }
+
+  const getResultFromEnter = (e) => {
+    if (e.key === 'Enter') {
+      if (stateCode !== '' && cityName !== '') {
+        setUpdate(!update);
+      } else {
+        toast.warning("You must choose country and city!");
+      }
+    }
+
   }
 
   const handleCode = (code) => {
@@ -87,8 +93,7 @@ const LandingPage = () => {
   }
 
   return (
-    // <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `linear-gradient(to bottom right,  #90dfee 0%,${colors.secondColor} 50%, ${finalColor} 100%)` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)` }}>
-      <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `${gradient}` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)` }}>
+    <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `${gradient}` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)` }}>
       <ToastContainer />
       <div className={!isEmpty(weatherData) ? "search" : "center-search"}>
         <div className="icon">
@@ -103,9 +108,9 @@ const LandingPage = () => {
           />
         </div>
         <div className="right">
-          <div className="input"><Input placeholder="Please enter your location..." value={searchTerm} onChange={handleSearch} /></div>
+          <div className="input"><Input placeholder="Please enter your location..." value={cityName} onChange={handleSearch} onKeyPress={getResultFromEnter} /></div>
           <div className="icon">
-            <img src={search} alt="Search" onClick={getResult} style={{opacity: cityName === '' ? '0.3' : '1'}}/>
+            <img src={search} alt="Search" onClick={getResult} style={{ opacity: cityName === '' ? '0.3' : '1' }} />
           </div>
         </div>
       </div>
