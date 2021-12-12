@@ -4,8 +4,8 @@ import Input from '../../components/input/index';
 import search from '../../assets/images/search.svg';
 import cloudy from '../../assets/images/cloudy.svg';
 import ReactFlagsSelect from 'react-flags-select';
-import { getColor } from '../../utils/colors';
-import { percentColors, colors, constants, isEmpty, countriesStateCode, countriesArray } from '../../utils/constants'
+import { getColor, getGradient } from '../../utils/colors';
+import { percentColors, constants, isEmpty, countriesStateCode, countriesArray } from '../../utils/constants'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -20,12 +20,11 @@ const LandingPage = () => {
   const [update, setUpdate] = useState(false);
   const [updateWeather, setUpdateWeather] = useState(false);
   const getMonth = { month: 'long' };
-  const [finalColor, setFinalColor] = useState('#fff');
+  const [gradient, setGradient] = useState('');
   const date = new Date();
-  const notify = () => toast("You must choose country and city!");
-  const secondNotify = () => toast("City isn't in that country!");
-  const thirdNotify = () => toast("We have no data for the requested city!");
-  const fourthNotify = () => toast("City name is in wrong format");
+  const chooseCity = () => toast("You must choose country and city!");
+  const wrontCityOrState = () => toast("City isn't in that country!");
+  const noData = () => toast("We have no data for the requested city!");
 
   const getWeather = async (city) => {
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${stateCode},${stateCode}&cnt=${constants.cnt}&units=metric&appid=${API_KEY}`);
@@ -33,16 +32,18 @@ const LandingPage = () => {
       const response = await api_call.json();
 
       if (stateCode !== response.sys.country) {
-        secondNotify()
+        wrontCityOrState()
       } else if (stateCode === response.sys.country) {
         setWeatherData(response);
         constants.percentage = (40 + response.main.temp) / 80;
         const endingColor = getColor(constants.percentage, percentColors);
-        setFinalColor(endingColor)
+        const test2 = getGradient(response.main.temp, endingColor);
+        console.log("TEST @", test2)
+        setGradient(test2);
         setUpdateWeather(true);
       } 
     } else {
-      thirdNotify();
+      noData();
     }
   }
 
@@ -77,7 +78,7 @@ const LandingPage = () => {
     if (stateCode !== '' && cityName !== '') {
       setUpdate(!update)
     } else {
-      notify();
+      chooseCity();
     }
   }
 
@@ -86,7 +87,8 @@ const LandingPage = () => {
   }
 
   return (
-    <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `linear-gradient(to bottom right,  #90dfee 0%,${colors.secondColor} 50%, ${finalColor} 100%)` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)` }}>
+    // <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `linear-gradient(to bottom right,  #90dfee 0%,${colors.secondColor} 50%, ${finalColor} 100%)` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)` }}>
+      <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `${gradient}` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)` }}>
       <ToastContainer />
       <div className={!isEmpty(weatherData) ? "search" : "center-search"}>
         <div className="icon">
@@ -107,7 +109,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      {!isEmpty(weatherData) ? <div>
+      {!isEmpty(weatherData) ? <div className='weather-data'>
         <div className='ten-days-temp'>
           <p className='date-range'>{new Intl.DateTimeFormat('en-US', getMonth).format(date)} {date.getDate()} - {date.getDate() + 7} {date.getFullYear()}</p>
           <span className='average-temperature'>{Math.round(weatherData.main.temp)}<span className='celsius'>&#8451;</span></span>

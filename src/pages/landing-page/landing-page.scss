@@ -5,8 +5,6 @@
     min-height: 100vh;
     padding: 10px;
     font-family: 'Poppins', sans-serif;
-    // background: linear-gradient(0.25turn, #cee8f7, #e4f5ff, #fff3e3);
-}
 
     .center-search {
         display: flex;
@@ -19,104 +17,15 @@
         transform: translate(-50%, -50%);
         width: auto;
         height: auto;
-
-        .icon {
-            height: 65px;
-            margin:0;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            img {
-                width: 45px;
-                height: 45px;
-                margin: 0 auto;
-            }
-        }
-
-        .select {
-            background-color: white;
-            height: 65px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 75px;
-            padding: 0 10px;
-            border-radius: 10px;
-
-            &>div {
-                padding: 0 5px 0 0;
-                border: 1px solid #f0eff0;
-                border-radius: 10px;
-                width: 70px;
-
-
-                ul {
-                    width: 100px;
-                }
-            }
-
-            button {
-                height: 45px;
-                border: none;
-                font-size: 0.875rem !important;
-                padding: 0;
-
-                span {
-                    padding: 0 3px;
-                }
-            }
-        }
-
-        .right {
-            display: flex;
-            align-items: center;
-            height: 65px;
-            background: white;
-            margin-top: 10px;
-            border-radius: 10px;
-
-            .input {
-                padding: 15px;
-                width: 300px;
-
-                .inputWrapper {
-                    border: 1px solid #f0eff0;
-                    width: 100%;
-                    border-radius: 10px;
-
-                    input {
-                        width: 270px;
-                        z-index: 2;
-                    }
-                }
-            }
-
-            .icon {
-                margin: 0;
-                position: absolute;
-                width: 40px;
-                height: 40px;
-                right: 15px;
-                cursor: pointer;
-                background-color: white;
-
-                img {
-                    width: 27px;
-                    height: 27px;
-                    margin: 0 auto;
-                }
-            }
-        }
     }
 
-
-.search {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: auto;
-    height: auto;
+    .search {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+        height: auto;
+    }
 
     .icon {
         height: 65px;
@@ -141,12 +50,13 @@
         width: 75px;
         padding: 0 10px;
         border-radius: 10px;
+        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
 
         &>div {
             padding: 0 5px 0 0;
-            border: 1px solid lightgray;
+            border: 1px solid #f0eff0;
             width: 70px;
-            border-radius: 10px;
+            border-radius: 5px;
 
             ul {
                 width: 100px;
@@ -154,7 +64,7 @@
         }
 
         button {
-            height: 45px;
+            height: 35px;
             border: none;
             font-size: 0.875rem !important;
             padding: 0;
@@ -173,191 +83,138 @@
         margin-top: 10px;
         position: relative;
         border-radius: 10px;
-        
-        .input {
-            padding: 15px;
-            width: 300px;
-
-            .inputWrapper {
-                border: 1px solid #f0eff0;
-                width: 100%;
-                border-radius: 10px;
-
-                input {
-                    width: 270px;
-                    z-index: 2;
-                }
-            }
-        }
+        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
 
         .icon {
             margin: 0;
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             right: 15px;
             cursor: pointer;
             background-color: white;
 
             img {
-                width: 27px;
-                height: 27px;
+                width: 20px;
+                height: 20px;
                 margin: 0 auto;
             }
         }
     }
-}
 
-.ten-days-temp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-transform: uppercase;
-
-    span {
-        font-size: 72px;
-        font-weight: 700;
-        color: white;
-        position: relative;
-
-        .celsius {
-            position: absolute;
-            top: 20px;
-            right: inherit;
-            font-size: 24px;
-        }
-    }
-}
-
-.seven-days {
-    margin-top: 20px;
-}
-
-.seven-days-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-
-    .card-day {
-        color: #5a9294;
-        text-transform: uppercase;
-        font-weight: 700;
+    .weather-data {
+        margin-top: 32px;
     }
 
-    .card-temperature {
-        margin-top: 10px;
-        font-weight: 700;
-        color: white;
-        position: relative;
-
-        .small-celsius {
-            position: absolute;
-            top: 1px;
-            right: inherit;
-            font-size: 12px;
-        }
-    }
-}
-
-.date-range {
-    color: #5a9294;
-    font-weight: 700;
-}
-
-  @media only screen and (min-width: 992px) {
-    .search {
-        width: 460px;
-        height: 63px;
-        margin: 200px auto auto auto;
+    .ten-days-temp {
         display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
-        border-radius: 10px;
+        flex-direction: column;
+        align-items: center;
+        text-transform: uppercase;
+
+        span {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            line-height: 64px;
+
+            .celsius {
+                position: absolute;
+                top: -20px;
+                right: inherit;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .seven-days {
+        margin-top: 30px;
+    }
+
+    .seven-days-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+
+        .card-day {
+            color: #5a9294;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.625rem;
+            line-height: 13px;
+        }
+
+        .card-temperature {
+            margin-top: 10px;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            font-size: 1rem;
+
+            .small-celsius {
+                position: absolute;
+                top: 3px;
+                right: inherit;
+                font-size: 0.625rem;
+                margin-left: 2px;
+            }
+        }
+    }
+
+    .date-range {
+        color: #5a9294;
+        font-weight: 700;
+        font-size: 0.625rem;
+        margin-bottom: 30px;
+    }
+
+    @media only screen and (min-width: 992px) {
+        .search {
+            width: 425px;
+            height: 63px;
+            margin: 200px auto auto auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+            border-radius: 10px;
+        }
 
         .icon {
             background-color: white;
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
         }
-        
+            
         .right {
             margin-top: 0;
-            padding-left: 10px;
-            padding-right: 10px;
+            padding-left: 5px;
+            padding-right: 14px;
             border-top-left-radius: 0px;
             border-bottom-left-radius: 0;
-
-            .input {
-                padding: 15px 0;
-
-                .inputWrapper {
-                    input {
-                        padding-left: 15px;
-                    }
-                }
-            }
+            box-shadow: none;
 
             .icon {
-                width: 45px;
-                height: 45px;
+                width: 30px;
+                height: 30px;
                 border-top-right-radius: 10px;
                 border-bottom-right-radius: 10px;
             }
-
-            .select {
-                background-color: white;
-                border-radius: 0;
-
-                &>div {
-                    padding: 0;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-
-                    button {
-                        height: 35px;
-                        border: 1px solid gray;
-                    }
-                }
-                
-
-            }
-        }
-
-        .select {
-            margin-top: 0;
-            border-radius: 0;
-
-            ul {
-                top: 40px;
-            }
-        }
-        }
-
-    .center-search {
-        display: flex;
-        flex-direction: row;
-        height: 63px;
-        justify-content: flex-start;
-        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
-        border-radius: 10px;
-        .icon {
-            background-color: white;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
         }
 
         .select {
             width: 70px;
             border-radius: 0;
+            box-shadow: none;
+            padding: 0;
 
             &>div {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                height: 45px;
+                height: 35px;
 
                 ul {
                     top: 40px;
@@ -372,39 +229,25 @@
             }
         }
 
-        .right {
-            margin-top: 0;
-            padding-left: 10px;
-            padding-right: 10px;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-
-            .input {
-                padding: 0;
-                background-color: white;
-                height: 45px;
-
-                .inputWrapper {
-                    input {
-                        padding-left: 15px;
-                        width: 95%;
-                        border: none;
-                    }
-                }
-            }
-
-            .icon {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
+        .center-search {
+            display: flex;
+            flex-direction: row;
+            height: 63px;
+            justify-content: flex-start;
+            box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+            border-radius: 10px;
         }
-    }
 
-    .seven-days {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
+        .seven-days {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .celsius {
+            position: absolute;
+            top: 20px;
+        }
     }
 }

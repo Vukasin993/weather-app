@@ -11,16 +11,25 @@ input::-webkit-outer-spin-button,
 
 	.input {
 		border-color: white;
-		height: auto;
-        width: 250px;
+		height: 65px;
+        width: 290px;
 		border-radius: 5px;
-		padding: 15px;
 		border: none;
 		color: #323641;
+		font-family: 'Poppins';
+		font-size: 0.75rem;
 
         .inputWrapper {
+			padding: 15px 0;
+			height: 100%;
+
             input {
-                width: 234px;
+				padding-left: 12px;
+				border: 1px solid #f0eff0;
+				width: 87%;
+				height: 31px;
+				z-index: 2;
+				margin-left: 12px;
             }
         }
 
@@ -51,12 +60,20 @@ input::-webkit-outer-spin-button,
 
     @media only screen and (min-width: 992px) { 
         .input {
+			border-color: white;
+			height: 65px;
+			width: 290px;
+			border-radius: 5px;
+			border: none;
+			color: #323641;
+			font-family: "Poppins", sans-serif;
+			font-size: 0.75rem;
+
            .inputWrapper {
                input {
-                   width: 255px;
-                   border-bottom-left-radius: 0;
-                   border-top-left-radius: 0;
-                   padding-left: 10px;
+                   padding-left: 12px;
+				   width: 96%;
+				   margin-left: 0;
                }
            }
         }
