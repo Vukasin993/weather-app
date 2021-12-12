@@ -10,17 +10,12 @@ export const percentColors = [
     { percentage: 1.0, color: { r: 254, g: 148, b: 86 } }
 ];
 
-// const percentColors = [
-//     { percentage: 0.0, color: { r: 0, g: 57, b: 130 } },
-//     { percentage: 0.5, color: { r: 128, g: 222, b: 252 } },
-//     { percentage: 1.0, color: { r: 254, g: 141, b: 95 } } ];
-
 export const constants = {
     cnt: 10,
     percentage: 0
 }
 
-export  const  isEmpty = (obj) => {
+export const isEmpty = (obj) => {
     if (obj === null ||
         obj === undefined ||
         Array.isArray(obj) ||
@@ -31,6 +26,60 @@ export  const  isEmpty = (obj) => {
     return Object.getOwnPropertyNames(obj).length === 0;
   };
 
-  export const countriesStateCode = ["US", "GB", "FR", "DE", "IT", "NL", "RS", "HR", "BS", "ZA", "AU", "RU"].sort()
+  export const countriesStateCode = ["US", "GB", "FR", "DE", "IT", "NL", "RS", "HR", "BS", "ZA", "AU", "RU", "JP", "BR", "JM"].sort()
   
-  export const countriesArray = { "US": "US", "GB": "GB", "FR": "FR", "DE": "DE", "IT": "IT", "NL": "NL", "RS": "RS", "HR": "HR", "BS": "BS", "ZA": "ZA", "AU": "AU", "RU": "RU" }
+  export const countriesArray = { "US": "US", "GB": "GB", "FR": "FR", "DE": "DE", "IT": "IT", "NL": "NL", "RS": "RS", "HR": "HR", "BS": "BS", "ZA": "ZA", "AU": "AU", "RU": "RU", "JM": "JM", "JP": "JP", "BR": "BR"}
+
+  export const cities = [
+    {label: 'belgrade', value: 'Belgrade'},
+    {label: 'novi sad', value: 'Novi Sad'},
+    {label: 'nis', value: 'Nis'},
+    {label: 'kragujevac', value: 'Kragujevac'},
+    {label: 'london', value: 'London'},
+    {label: 'manchester', value: 'Manchester'},
+    {label: 'liverpool', value: 'Liverpool'},
+    {label: 'washington', value: 'Washington'},
+    {label: 'new orleans', value: 'New Orleans'},
+    {label: 'atlanta', value: 'Atlanta'},
+    {label: 'chicago', value: 'Chicago'},
+    {label: 'new york', value: 'New York'},
+    {label: 'utrecht', value: 'Utrecht'},
+    {label: 'eindhoven', value: 'Eindhoven'},
+    {label: 'amsterdam', value: 'Amsterdam'},
+    {label: 'berlin', value: 'Berlin'},
+    {label: 'munich', value: 'Munich'},
+    {label: 'frankfurt', value: 'Frankfurt'},
+    {label: 'mainz', value: 'Mainz'},
+    {label: 'sydney', value: 'Sydney'},
+    {label: 'melbourne', value: 'Melbourne'},
+    {label: 'brisbane', value: 'Brisbane'},
+    {label: 'marble bar', value: 'Marble Bar'},
+    {label: 'moscow', value: 'Moscow'},
+    {label: 'saint petersburg', value: 'Saint Petersburg'},
+    {label: 'nizhny novgorod', value: 'Nizhny Novgorod'},
+    {label: 'paris', value: 'Paris'},
+    {label: 'marseille', value: 'Marseille'},
+    {label: 'bordeaux', value: 'Bordeaux'},
+    {label: 'lyon', value: 'Lyon'},
+    {label: 'rome', value: 'Rome'},
+    {label: 'venice', value: 'Venice'},
+    {label: 'milan', value: 'Milan'},
+    {label: 'florence', value: 'Florence'},
+    {label: 'naples', value: 'Naples'},
+    {label: 'zagreb', value: 'Zagreb'},
+    {label: 'dubrovnik', value: 'Dubrovnik'},
+    {label: 'zadar', value: 'Zadar'},
+    {label: 'split', value: 'Split'},
+    {label: 'rijeka', value: 'Rijeka'},
+    {label: 'cape town', value: 'Cape Town'},
+    {label: 'johannesburg', value: 'Johannesburg'},
+    {label: 'durban', value: 'Durban'},
+    {label: 'pretoria', value: 'Pretoria'},
+    {label: 'rio de janeiro', value: 'Rio de Janeiro'},
+    {label: 'freeport', value: 'Freeport'},
+    {label: 'kingston', value: 'Kingston'},
+    {label: 'sao paulo', value: 'Sao Paulo'},
+    {label: 'tokyo', value: 'Tokyo'},
+    {label: 'kyoto', value: 'Kyoto'},
+    {label: 'osaka', value: 'Osaka'}
+  ];

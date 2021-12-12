@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './landing-page.scss';
 import Input from '../../components/input/index';
 import search from '../../assets/images/search.svg';
 import cloudy from '../../assets/images/cloudy.svg';
 import ReactFlagsSelect from 'react-flags-select';
 import { getColor, getGradient } from '../../utils/colors';
-import { percentColors, constants, isEmpty, countriesStateCode, countriesArray } from '../../utils/constants'
+import { percentColors, constants, isEmpty, countriesStateCode, countriesArray, cities } from '../../utils/constants'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,6 +21,9 @@ const LandingPage = () => {
   const getMonth = { month: 'long' };
   const [gradient, setGradient] = useState('');
   const date = new Date();
+  const [display, setDisplay] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const ref = useRef()
 
   const getWeather = async (city) => {
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${stateCode},${stateCode}&cnt=${constants.cnt}&units=metric&appid=${API_KEY}`);
@@ -55,10 +58,31 @@ const LandingPage = () => {
     }
   }, [updateWeather]);
 
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      if (display && ref.current && !ref.current.contains(e.target)) {
+        setDisplay(false)
+      }
+    }
+    document.addEventListener("mousedown", checkIfClickedOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside)
+    }
+  }, [display])
+
   const handleSearch = (e) => {
     e.preventDefault();
     setCityName(e.target.value);
+    setSearchTerm(e.target.value)
+    setDisplay(true)
   };
+
+  const setCityDex = city => {
+    setSearchTerm(city);
+    setCityName(city);
+    setDisplay(false);
+  }
 
   useEffect(() => {
     if (stateCode !== '' && cityName !== '') {
@@ -108,11 +132,24 @@ const LandingPage = () => {
           />
         </div>
         <div className="right">
-          <div className="input"><Input placeholder="Please enter your location..." value={cityName} onChange={handleSearch} onKeyPress={getResultFromEnter} /></div>
+          <div className="input"  ref={ref}>
+            <Input placeholder="Please enter your location..." value={cityName} onChange={handleSearch} onKeyPress={getResultFromEnter} onClick={() => setDisplay(!display)} />
+            {display && (
+            <div className='list-of-cities'>
+              {cities.filter((v) => v.label.indexOf(searchTerm.toLowerCase()) > -1).map((v, i) => {
+                  return <div onClick={() => setCityDex(v.value)} key={i}>
+                    <p>{v.value}</p>
+                  </div> 
+                })}
+              </div>
+            )}
+          </div>
           <div className="icon">
             <img src={search} alt="Search" onClick={getResult} style={{ opacity: cityName === '' ? '0.3' : '1' }} />
           </div>
-        </div>
+          </div>
+
+          
       </div>
       {!isEmpty(weatherData) ? <div className='weather-data'>
         <div className='ten-days-temp'>

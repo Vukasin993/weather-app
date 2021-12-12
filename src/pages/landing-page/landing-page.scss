@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300;500;600;700&family=Poppins:wght@100;200;300;400;600;700;900&family=Roboto:wght@300;400;500&display=swap');
 
 .wrapper {
-    height: max-content;
-    min-height: 100vh;
     padding: 10px;
+    min-width: 300px;
+    height: max-content;
     font-family: 'Poppins', sans-serif;
 
     .center-search {
@@ -85,6 +85,43 @@
         border-radius: 10px;
         box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
 
+        .input {
+            position: relative;
+            
+            .list-of-cities {
+                top: 50px;
+                position: absolute;
+                left: 13px;
+                width: 260px;
+                font-size: 12px;
+                border: 1px solid #f0eff0;
+                z-index: 3;
+                background-color: white;
+                height: auto;
+                max-height: 200px;
+                overflow: auto;
+
+                &>div>p {
+                    color: #323641;
+                    font-family: "Poppins";
+                    font-size: 0.75rem;
+                    margin: 0;
+                    padding: 5px;
+                    cursor: pointer;
+                }
+
+                &>div>p:hover, &>div>p:active {
+                    background-color: #f0eff0;
+                    color: black;
+                }
+            }
+
+            .list-of-cities:hover {
+                background-color: white;
+                color: black;
+            }
+        }
+
         .icon {
             margin: 0;
             position: absolute;
@@ -93,6 +130,7 @@
             right: 15px;
             cursor: pointer;
             background-color: white;
+            z-index: 3;
 
             img {
                 width: 20px;
@@ -142,7 +180,7 @@
             color: #5a9294;
             text-transform: uppercase;
             font-weight: 700;
-            font-size: 0.625rem;
+            font-size: 0.75rem;
             line-height: 13px;
         }
 
@@ -155,9 +193,9 @@
 
             .small-celsius {
                 position: absolute;
-                top: 3px;
+                top: 1px;
                 right: inherit;
-                font-size: 0.625rem;
+                font-size: 0.75rem;
                 margin-left: 2px;
             }
         }
@@ -166,11 +204,18 @@
     .date-range {
         color: #5a9294;
         font-weight: 700;
-        font-size: 0.625rem;
+        font-size: 0.75rem;
         margin-bottom: 30px;
     }
 
     @media only screen and (min-width: 992px) {
+        position:absolute;
+        top:0px;
+        right:0px;
+        bottom:0px;
+        left:0px;
+        height: auto;
+        
         .search {
             width: 425px;
             height: 63px;
@@ -201,6 +246,13 @@
                 height: 30px;
                 border-top-right-radius: 10px;
                 border-bottom-right-radius: 10px;
+            }
+
+            .input {
+                .list-of-cities {
+                    width: 290px;
+                    left: 0;
+                }
             }
         }
 
