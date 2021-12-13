@@ -26,9 +26,9 @@ export const isEmpty = (obj) => {
     return Object.getOwnPropertyNames(obj).length === 0;
   };
 
-  export const countriesStateCode = ["US", "GB", "FR", "DE", "IT", "NL", "RS", "HR", "BS", "ZA", "AU", "RU", "JP", "BR", "JM"].sort()
+  export const countriesStateCode = ["US", "GB", "FR", "DE", "IT", "NL", "RS", "HR", "BS", "ZA", "AU", "RU", "JP", "BR", "JM"].sort();
   
-  export const countriesArray = { "US": "US", "GB": "GB", "FR": "FR", "DE": "DE", "IT": "IT", "NL": "NL", "RS": "RS", "HR": "HR", "BS": "BS", "ZA": "ZA", "AU": "AU", "RU": "RU", "JM": "JM", "JP": "JP", "BR": "BR"}
+  export const countriesArray = { "US": "US", "GB": "GB", "FR": "FR", "DE": "DE", "IT": "IT", "NL": "NL", "RS": "RS", "HR": "HR", "BS": "BS", "ZA": "ZA", "AU": "AU", "RU": "RU", "JM": "JM", "JP": "JP", "BR": "BR"};
 
   export const cities = [
     {label: 'belgrade', value: 'Belgrade', code: 'RS'},

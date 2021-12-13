@@ -3,6 +3,7 @@ import './landing-page.scss';
 import qs from "qs";
 import { createBrowserHistory } from "history";
 import Input from '../../components/input/index';
+import WeatherData from '../../components/weatherData/index';
 import search from '../../assets/images/search.svg';
 import loading from '../../assets/images/loading.svg';
 import cloudy from '../../assets/images/cloudy.svg';
@@ -11,7 +12,6 @@ import { getColor, getGradient } from '../../utils/colors';
 import { percentColors, constants, isEmpty, countriesStateCode, countriesArray, cities } from '../../utils/constants';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import WeatherData from '../../components/weatherData/index';
 
 const API_KEY = '4e308dad5b0ffc36440e738859db44c6';
 
@@ -126,7 +126,7 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `${gradient}` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)` }} onClick={() => setDisplay(false)}>
+    <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `${gradient}` : `linear-gradient(to right bottom, #cfe4f3, #e7f5fe, #fef6e3)` }} onClick={() => setDisplay(false)}>
       <ToastContainer limit={3} autoClose={2500} />
       <div className={!isEmpty(weatherData) ? "search" : "center-search"}>
         <div className="icon">
