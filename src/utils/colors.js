@@ -20,20 +20,12 @@ export const getColor = (percentage, percentColors) => {
 
 export const getGradient = (temperature, finalColor) => {
     if (temperature >= -40 && temperature < -30) {
-        // return `linear-gradient(to bottom right,  #092A79 0%, ${finalColor} 100%)`
-
         return `linear-gradient(to bottom right,  #9ADCFE 0%,#5BC4FD 25%, #1A9FEA 50%, #0D8bd5 75%, ${finalColor} 100%)`
     } else if (temperature >= -30 && temperature < -20)  {
-        // return `linear-gradient(to bottom right,  #092A79 0%,#0D8bd5 50%, ${finalColor} 100%)`
-
         return `linear-gradient(to bottom right,  #9ADCFE 0%,#5BC4FD 33.33%,  #1A9FEA 66.66%, ${finalColor} 100%)`
     } else if (temperature >= -20 && temperature < -10) {
-        // return `linear-gradient(to bottom right,  #092A79 0%,#0D8bd5 33%, #1A9FEA 66%, ${finalColor} 100%)`
-
         return `linear-gradient(to bottom right,  #9ADCFE 0%,#5BC4FD 50%, ${finalColor} 100%)`
     } else if (temperature >= -10 && temperature < 0) {
-        // return `linear-gradient(to bottom right,  #092A79 0%,#0D8bd5 25%, #1A9FEA 50%, #5BC4FD 75%, ${finalColor} 100%)`
-
         return `linear-gradient(to bottom right,  #9ADCFE 0%, ${finalColor} 100%)`
     } else if  (temperature >= 0 && temperature < 10) {
         return `linear-gradient(to bottom right,  #9ADCFE 0%, ${finalColor} 100%)`

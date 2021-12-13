@@ -11,6 +11,7 @@ import { getColor, getGradient } from '../../utils/colors';
 import { percentColors, constants, isEmpty, countriesStateCode, countriesArray, cities } from '../../utils/constants';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import WeatherData from '../../components/weatherData/index';
 
 const API_KEY = '4e308dad5b0ffc36440e738859db44c6';
 
@@ -25,15 +26,12 @@ const LandingPage = () => {
   const [display, setDisplay] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  const date = new Date();
-  const getMonth = { month: 'long' };
   const history = createBrowserHistory();
 
   const getWeather = async (city) => {
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${stateCode},${stateCode}&cnt=${constants.cnt}&units=metric&appid=${API_KEY}`);
     if (api_call.ok) {
       const response = await api_call.json();
-      console.log("RESPONSE", response)
 
       if (stateCode !== response.sys.country) {
         toast.warning("City isn't in that country!");
@@ -44,11 +42,11 @@ const LandingPage = () => {
         const newGradient = getGradient(response.main.temp, endingColor);
         setGradient(newGradient);
         setUpdateWeather(true);
-        setIsLoading(false);
       }
     } else {
-      toast.warning("We can find data for that city!");
+      toast.warning("We can't find data for that city!");
     }
+    setIsLoading(false);
   };
 
   const sevendDaysWeather = async () => {
@@ -71,8 +69,8 @@ const LandingPage = () => {
     if (filtersFromParams.cityName) {
       setCityName(String(filtersFromParams.cityName));
       setStateCode(String(filtersFromParams.stateCode));
-      setUpdate(!updateWeather)
-    }
+      setUpdate(!updateWeather);
+    };
   }, []);
 
   useEffect(() => {
@@ -90,7 +88,8 @@ const LandingPage = () => {
   const addCityFromArray = city => {
     setCityName(city);
     setDisplay(false);
-  }
+    setError(false);
+  };
 
   useEffect(() => {
     if (cityName !== '') {
@@ -107,7 +106,7 @@ const LandingPage = () => {
       setUpdate(!update);
     } else {
       setError(true);
-      toast.warning("You must insert city name!");
+      toast.warning("You must insert a city name!");
     }
   };
 
@@ -117,7 +116,7 @@ const LandingPage = () => {
         setUpdate(!update);
       } else {
         setError(true);
-        toast.warning("You must insert city name!");
+        toast.warning("You must insert a city name!");
       }
     }
   };
@@ -128,7 +127,7 @@ const LandingPage = () => {
 
   return (
     <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `${gradient}` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)` }} onClick={() => setDisplay(false)}>
-      <ToastContainer />
+      <ToastContainer limit={3} autoClose={2500} />
       <div className={!isEmpty(weatherData) ? "search" : "center-search"}>
         <div className="icon">
           {!isEmpty(weatherData) ? <img src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} alt={weatherData.weather[0].main} /> : <img src={cloudy} alt="cloudy" />}
@@ -160,28 +159,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      {!isEmpty(weatherData) ? <div className='weather-data'>
-        <div className='ten-days-temp'>
-          <p className='date-range'>{new Intl.DateTimeFormat('en-US', getMonth).format(date)} {date.getDate()} - {date.getDate() + 7} {date.getFullYear()}</p>
-          <span className='average-temperature'>{Math.round(weatherData.main.temp)}<span className='celsius'>&#8451;</span></span>
-        </div>
-        <div className="seven-days">
-          {!isEmpty(sevenDaysData) && sevenDaysData.daily.map((d, i) => {
-            if (i + 1 !== sevenDaysData.daily.length) {
-              return (
-                <div className="seven-days-card" key={i}>
-                  <img
-                    src={`http://openweathermap.org/img/w/${d.weather[0].icon}.png`}
-                    alt={d.weather[0].main}
-                  />
-                  <span className='card-day'>{new Date(d.dt * 1000).toLocaleString('en-us', { weekday: 'long' })}</span>
-                  <span className='card-temperature'>{Math.round(d.temp.day)}<span className='small-celsius'>&#8451;</span></span>
-                </div>
-              )
-            }
-          })}
-        </div>
-      </div> : null}
+      <WeatherData weatherData={weatherData} sevenDaysData={sevenDaysData} />
     </div>
   );
 };

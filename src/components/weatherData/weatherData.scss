@@ -1,0 +1,85 @@
+.weather-data-wrapper {
+    .weather-data {
+        margin-top: 32px;
+    }
+    
+    .ten-days-temp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-transform: uppercase;
+    
+        span {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            line-height: 64px;
+    
+            .celsius {
+                position: absolute;
+                top: -20px;
+                right: inherit;
+                font-size: 1rem;
+            }
+        }
+    }
+    
+    .seven-days {
+        margin-top: 30px;
+    }
+    
+    .seven-days-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+    
+        .card-day {
+            color: #5a9294;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.75rem;
+            line-height: 13px;
+        }
+    
+        .card-temperature {
+            margin-top: 5px;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            font-size: 1rem;
+            line-height: 12px;
+    
+            .small-celsius {
+                position: absolute;
+                top: -2px;
+                right: inherit;
+                font-size: 0.625rem;
+                margin-left: 2px;
+            }
+        }
+    }
+    
+    .date-range {
+        color: #5a9294;
+        font-weight: 700;
+        font-size: 0.75rem;
+        margin-bottom: 30px;
+    }
+    
+    @media only screen and (min-width: 992px) {
+        .seven-days {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .celsius {
+            position: absolute;
+            top: 20px;
+        }
+    }
+}
+

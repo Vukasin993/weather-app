@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300;500;600;700&family=Poppins:wght@100;200;300;400;600;700;900&family=Roboto:wght@300;400;500&display=swap');
 
 .wrapper {
-    padding: 10px;
+    padding: 100px 10px 10px 10px;
     min-width: 300px;
     min-height: 900px;
     height: max-content;
@@ -89,7 +89,7 @@
         .message-alert {
             position: absolute;
             top: 10px;
-            right: 40px;
+            right: 50px;
             z-index: 3;
             color: #fc382b;
         }
@@ -148,76 +148,7 @@
             }
         }
     }
-
-    .weather-data {
-        margin-top: 32px;
-    }
-
-    .ten-days-temp {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-transform: uppercase;
-
-        span {
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: white;
-            position: relative;
-            line-height: 64px;
-
-            .celsius {
-                position: absolute;
-                top: -20px;
-                right: inherit;
-                font-size: 1rem;
-            }
-        }
-    }
-
-    .seven-days {
-        margin-top: 30px;
-    }
-
-    .seven-days-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 8px;
-
-        .card-day {
-            color: #5a9294;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 0.75rem;
-            line-height: 13px;
-        }
-
-        .card-temperature {
-            margin-top: 5px;
-            font-weight: 700;
-            color: white;
-            position: relative;
-            font-size: 1rem;
-            line-height: 12px;
-
-            .small-celsius {
-                position: absolute;
-                top: -2px;
-                right: inherit;
-                font-size: 0.625rem;
-                margin-left: 2px;
-            }
-        }
-    }
-
-    .date-range {
-        color: #5a9294;
-        font-weight: 700;
-        font-size: 0.75rem;
-        margin-bottom: 30px;
-    }
-
+    
     @media only screen and (min-width: 992px) {
         position:absolute;
         top:0px;
@@ -225,6 +156,7 @@
         bottom:0px;
         left:0px;
         height: auto;
+        padding: 10px;
         
         .search {
             width: 425px;
@@ -250,6 +182,10 @@
             border-top-left-radius: 0px;
             border-bottom-left-radius: 0;
             box-shadow: none;
+            
+            .message-alert {
+                right: 40px;
+            }
 
             .icon {
                 width: 30px;
@@ -298,18 +234,6 @@
             justify-content: flex-start;
             box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
             border-radius: 10px;
-        }
-
-        .seven-days {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .celsius {
-            position: absolute;
-            top: 20px;
         }
     }
 }

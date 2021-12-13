@@ -1,79 +1,76 @@
 input::-webkit-outer-spin-button,
-	input::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+.input {
+	border-color: white;
+	height: 65px;
+    width: 290px;
+	border-radius: 5px;
+	border: none;
+	color: #323641;
+	font-family: 'Poppins';
+	font-size: 0.75rem;
+
+    .inputWrapper {
+		padding: 15px 0;
+		height: 100%;
+
+        input {
+			padding-left: 12px;
+			border: 1px solid #f0eff0;
+			width: 87%;
+			height: 31px;
+			z-index: 2;
+			margin-left: 12px;
+        }
+    }
+
+	&::placeholder {
+		color: #c6c6cb;
 	}
 
-	input[type=number] {
-		-moz-appearance: textfield;
-		/* Firefox */
+	&:disabled {
+		cursor: not-allowed;
 	}
 
-	.input {
+	&:active {
+		outline: none;
+		color:#323641;
+	}
+
+	&:hover {
+		color: #d0d1d6;
+	}
+
+	&:focus {
+		outline: none;
+		color: #323641;
+	}
+}
+
+@media only screen and (min-width: 992px) { 
+    .input {
 		border-color: white;
 		height: 65px;
-        width: 290px;
+		width: 290px;
 		border-radius: 5px;
 		border: none;
 		color: #323641;
-		font-family: 'Poppins';
+		font-family: "Poppins", sans-serif;
 		font-size: 0.75rem;
 
         .inputWrapper {
-			padding: 15px 0;
-			height: 100%;
-
             input {
-				padding-left: 12px;
-				border: 1px solid #f0eff0;
-				width: 87%;
-				height: 31px;
-				z-index: 2;
-				margin-left: 12px;
-            }
+               padding-left: 12px;
+			   width: 96%;
+			   margin-left: 0;               }
         }
-
-		&::placeholder {
-			color: #c6c6cb;
-		}
-
-		&:disabled {
-			cursor: not-allowed;
-		}
-
-		&:active {
-			outline: none;
-			color:#323641;
-		}
-
-		&:hover {
-			color: #d0d1d6;
-		}
-
-		&:focus {
-			outline: none;
-			color: #323641;
-		}
-	}
-
-    @media only screen and (min-width: 992px) { 
-        .input {
-			border-color: white;
-			height: 65px;
-			width: 290px;
-			border-radius: 5px;
-			border: none;
-			color: #323641;
-			font-family: "Poppins", sans-serif;
-			font-size: 0.75rem;
-
-           .inputWrapper {
-               input {
-                   padding-left: 12px;
-				   width: 96%;
-				   margin-left: 0;
-               }
-           }
-        }
-    
     }
+}
