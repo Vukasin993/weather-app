@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './landing-page.scss';
 import Input from '../../components/input/index';
 import search from '../../assets/images/search.svg';
@@ -23,8 +23,7 @@ const LandingPage = () => {
   const date = new Date();
   const [display, setDisplay] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const ref = useRef()
-
+ 
   const getWeather = async (city) => {
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${stateCode},${stateCode}&cnt=${constants.cnt}&units=metric&appid=${API_KEY}`);
     if (api_call.ok) {
@@ -57,19 +56,6 @@ const LandingPage = () => {
       sevendDaysWeather();
     }
   }, [updateWeather]);
-
-  useEffect(() => {
-    const checkIfClickedOutside = e => {
-      if (display && ref.current && !ref.current.contains(e.target)) {
-        setDisplay(false)
-      }
-    }
-    document.addEventListener("mousedown", checkIfClickedOutside)
-
-    return () => {
-      document.removeEventListener("mousedown", checkIfClickedOutside)
-    }
-  }, [display])
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -117,7 +103,7 @@ const LandingPage = () => {
   }
 
   return (
-    <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `${gradient}` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)` }}>
+    <div className="wrapper" style={{ background: !isEmpty(weatherData) ? `${gradient}` : `linear-gradient(to right bottom, #cee8f7, #e4f5ff, #fff3e3)`}} onClick={() => setDisplay(false)}>
       <ToastContainer />
       <div className={!isEmpty(weatherData) ? "search" : "center-search"}>
         <div className="icon">
@@ -132,7 +118,7 @@ const LandingPage = () => {
           />
         </div>
         <div className="right">
-          <div className="input"  ref={ref}>
+          <div className="input">
             <Input placeholder="Please enter your location..." value={cityName} onChange={handleSearch} onKeyPress={getResultFromEnter} onClick={() => setDisplay(!display)} />
             {display && (
             <div className='list-of-cities'>
