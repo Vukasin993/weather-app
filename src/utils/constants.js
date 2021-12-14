@@ -26,9 +26,9 @@ export const isEmpty = (obj) => {
     return Object.getOwnPropertyNames(obj).length === 0;
   };
 
-  export const countriesStateCode = ["US", "GB", "FR", "DE", "IT", "NL", "RS", "HR", "BS", "ZA", "AU", "RU", "JP", "BR", "JM"].sort();
+  export const countriesStateCode = ["US", "GB", "FR", "DE", "IT", "NL", "RS", "HR", "BS", "ZA", "AU", "RU", "JP", "BR", "JM", "EG", "TR", "IN", "SN"].sort();
   
-  export const countriesArray = { "US": "US", "GB": "GB", "FR": "FR", "DE": "DE", "IT": "IT", "NL": "NL", "RS": "RS", "HR": "HR", "BS": "BS", "ZA": "ZA", "AU": "AU", "RU": "RU", "JM": "JM", "JP": "JP", "BR": "BR"};
+  export const countriesArray = { "US": "US", "GB": "GB", "FR": "FR", "DE": "DE", "IT": "IT", "NL": "NL", "RS": "RS", "HR": "HR", "BS": "BS", "ZA": "ZA", "AU": "AU", "RU": "RU", "JM": "JM", "JP": "JP", "BR": "BR", "EG": "EG", "TR": "TR", "IN":"IN", "SN": "SN"};
 
   export const cities = [
     {label: 'belgrade', value: 'Belgrade', code: 'RS'},
@@ -81,5 +81,17 @@ export const isEmpty = (obj) => {
     {label: 'sao paulo', value: 'Sao Paulo', code: 'BR'},
     {label: 'tokyo', value: 'Tokyo', code: 'JP'},
     {label: 'kyoto', value: 'Kyoto', code: 'JP'},
-    {label: 'osaka', value: 'Osaka', code: 'JP'}
+    {label: 'osaka', value: 'Osaka', code: 'JP'},
+    {label: 'cairo', value: 'Cairo', code: 'EG'},
+    {label: 'luxor', value: 'Luxor', code: 'EG'},
+    {label: 'alexandria', value: 'Alexandria', code: 'EG'},
+    {label: 'hurghada', value: 'Hurghada', code: 'EG'},
+    {label: 'mumbai', value: 'Mumbai', code: 'IN'},
+    {label: 'bengaluru', value: 'Bengaluru', code: 'IN'},
+    {label: 'kolkata', value: 'Kolkata', code: 'IN'},
+    {label: 'istanbul', value: 'Istanbul', code: 'TR'},
+    {label: 'ankara', value: 'Ankara', code: 'TR'},
+    {label: 'antalya', value: 'Antalya', code: 'TR'},
+    {label: 'dakar', value: 'Dakar', code: 'SN'},
+    {label: 'kaolack', value: 'Kaolack', code: 'SN'},
   ];
